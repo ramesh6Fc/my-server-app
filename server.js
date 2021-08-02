@@ -7,16 +7,14 @@ mongoose.Promise = global.Promise;
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:3000"
-};
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-app.use(cors(corsOptions));
+// var corsOptions = {
+//   origin: "http://localhost:3000"
+// };
+//app.use(cors(corsOptions)); // For specific route
+app.use(cors())
 app.use(function(req, res, next) {
   res.header(
     "Access-Control-Allow-Headers",
